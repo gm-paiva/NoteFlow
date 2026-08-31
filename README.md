@@ -79,7 +79,7 @@ Como o projeto é feito apenas com HTML, CSS e JavaScript puro, não é necessá
 
 ## 👥 Integrantes do grupo
 
-- [Guilherme Matos Paiva](https://github.com/gm-paiva)
+- [Guilherme](https://github.com/gm-paiva)
 - Sthelly
 - João Carlos
 
