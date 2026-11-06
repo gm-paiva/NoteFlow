@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    image: noteflow:latest
+    container_name: noteflow
+    restart: unless-stopped
+    ports:
+      # Porta do seu computador (lida do .env, padrão 3000) -> porta 3000 do container
+      - "${PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
