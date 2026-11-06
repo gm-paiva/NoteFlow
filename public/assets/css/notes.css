@@ -1,5 +1,3 @@
-@import url('main.css');
-
 .app {
   display: flex;
   min-height: 100vh;
@@ -599,3 +597,11 @@
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
+
+/* Cores das notas (seletor de cor) */
+.dot[data-color="#ffffff"] { background: #ffffff; }
+.dot[data-color="#fef9c3"] { background: #fef9c3; }
+.dot[data-color="#fce7f3"] { background: #fce7f3; }
+.dot[data-color="#dcfce7"] { background: #dcfce7; }
+.dot[data-color="#dbeafe"] { background: #dbeafe; }
+.dot[data-color="#ede9fe"] { background: #ede9fe; }
