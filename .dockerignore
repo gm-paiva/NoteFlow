@@ -1,0 +1,23 @@
+node_modules
+npm-debug.log*
+.git
+.github
+.gitignore
+.gitattributes
+.editorconfig
+.nvmrc
+
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+
+# Arquivos que não fazem parte da imagem
+Dockerfile
+docker-compose*.yml
+.dockerignore
+README.md
+LICENSE
+tests
+coverage
+eslint.config.js

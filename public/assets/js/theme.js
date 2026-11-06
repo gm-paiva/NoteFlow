@@ -1,20 +1,41 @@
-function toggleTheme() {
-  const body = document.body;
-  const btn = document.getElementById('themeToggle');
-  if (body.classList.contains('light')) {
-    body.classList.replace('light', 'dark');
-    btn.textContent = '☀️ Tema claro';
-    localStorage.setItem('nf_theme', 'dark');
-  } else {
-    body.classList.replace('dark', 'light');
-    btn.textContent = '🌙 Tema escuro';
-    localStorage.setItem('nf_theme', 'light');
+// Alternância de tema claro/escuro (compartilhada por todas as páginas).
+// A preferência fica salva no localStorage.
+
+const STORAGE_KEY = 'nf_theme';
+const TOGGLE_LABEL = {
+  light: '🌙 Tema escuro',
+  dark: '☀️ Tema claro',
+};
+
+function readSavedTheme() {
+  try {
+    return localStorage.getItem(STORAGE_KEY) === 'dark' ? 'dark' : 'light';
+  } catch {
+    return 'light'; // localStorage indisponível (ex.: modo privado restrito)
   }
 }
 
-window.addEventListener('load', () => {
-  const saved = localStorage.getItem('nf_theme') || 'light';
-  document.body.className = saved;
-  const btn = document.getElementById('themeToggle');
-  if (btn) btn.textContent = saved === 'dark' ? '☀️ Tema claro' : '🌙 Tema escuro';
-});
+function saveTheme(theme) {
+  try {
+    localStorage.setItem(STORAGE_KEY, theme);
+  } catch {
+    // sem persistência: o tema continua valendo até recarregar a página
+  }
+}
+
+function applyTheme(theme) {
+  document.body.classList.remove('light', 'dark');
+  document.body.classList.add(theme);
+
+  const button = document.getElementById('themeToggle');
+  if (button) button.textContent = TOGGLE_LABEL[theme];
+}
+
+function toggleTheme() {
+  const next = document.body.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(next);
+  saveTheme(next);
+}
+
+applyTheme(readSavedTheme());
+document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);

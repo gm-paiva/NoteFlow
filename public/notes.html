@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NoteFlow: crie, fixe, arquive e busque suas notas." />
+  <title>NoteFlow | Notas</title>
+
+  <link rel="icon" href="/assets/img/logo-circle.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Righteous&family=Sora:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/notes.css" />
+</head>
+<body class="light">
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo-wrap">
+      <span class="logo-icon"><img src="/assets/img/logo-transparent.png" alt="Logo do NoteFlow" /></span>
+      <h2 class="logo">Note<span>Flow</span></h2>
+    </div>
+
+    <button class="btn-primary" id="btnNovaNota" type="button">
+      <span class="plus">+</span> Nova nota
+    </button>
+
+    <nav aria-label="Filtros de notas">
+      <ul>
+        <li class="active" id="nav-todas" data-filter="todas">
+          <span class="nav-icon">◎</span> Todas as notas
+        </li>
+        <li id="nav-fixadas" data-filter="fixadas">
+          <span class="nav-icon">⊙</span> Fixadas
+        </li>
+        <li id="nav-arquivadas" data-filter="arquivadas">
+          <span class="nav-icon">◷</span> Arquivadas
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="themeToggle" type="button">🌙 Tema escuro</button>
+    </div>
+  </aside>
+
+  <!-- Conteúdo -->
+  <main class="content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu">☰</button>
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input type="text" id="searchInput" placeholder="Buscar notas..." aria-label="Buscar notas" />
+      </div>
+    </header>
+
+    <!-- Criação rápida inline -->
+    <div class="quick-create" id="quickCreate">
+      <input type="text" id="quickTitle" placeholder="Criar uma nota..." aria-label="Título da nota" />
+      <div class="quick-actions" id="quickActions">
+        <textarea id="quickBody" placeholder="Escreva sua nota..." aria-label="Conteúdo da nota"></textarea>
+        <div class="quick-footer">
+          <div class="color-dots" id="quickColors">
+            <button type="button" class="dot" data-color="#ffffff" aria-label="Branco"></button>
+            <button type="button" class="dot" data-color="#fef9c3" aria-label="Amarelo"></button>
+            <button type="button" class="dot" data-color="#fce7f3" aria-label="Rosa"></button>
+            <button type="button" class="dot" data-color="#dcfce7" aria-label="Verde"></button>
+            <button type="button" class="dot" data-color="#dbeafe" aria-label="Azul"></button>
+            <button type="button" class="dot" data-color="#ede9fe" aria-label="Roxo"></button>
+          </div>
+          <div class="quick-btns">
+            <button class="btn-fechar" id="btnFecharCriacao" type="button">Fechar</button>
+            <button class="btn-salvar" id="btnSalvarNota" type="button">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de notas -->
+    <section class="notes-section">
+      <div class="notes-label" id="labelFixadas">
+        <span>⊙ Fixadas</span>
+      </div>
+      <div class="grid" id="gridFixadas"></div>
+
+      <div class="notes-label" id="labelOutras">
+        <span>◎ Notas</span>
+      </div>
+      <div class="grid" id="gridNotas"></div>
+
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">◈</div>
+        <p>Nenhuma nota ainda.</p>
+        <small>Crie sua primeira nota acima!</small>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Modal editar nota -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalNota" role="dialog" aria-modal="true" aria-label="Editar nota">
+    <input type="text" id="modalTitle" placeholder="Título" class="modal-title-input" aria-label="Título" />
+    <textarea id="modalBody" placeholder="Escreva sua nota..." class="modal-body-input" aria-label="Conteúdo"></textarea>
+    <div class="modal-footer">
+      <div class="color-dots" id="modalColors">
+        <button type="button" class="dot" data-color="#ffffff" aria-label="Branco"></button>
+        <button type="button" class="dot" data-color="#fef9c3" aria-label="Amarelo"></button>
+        <button type="button" class="dot" data-color="#fce7f3" aria-label="Rosa"></button>
+        <button type="button" class="dot" data-color="#dcfce7" aria-label="Verde"></button>
+        <button type="button" class="dot" data-color="#dbeafe" aria-label="Azul"></button>
+        <button type="button" class="dot" data-color="#ede9fe" aria-label="Roxo"></button>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-icon" id="btnFixarModal" type="button" title="Fixar" aria-label="Fixar">⊙</button>
+        <button class="btn-icon btn-arquivar" id="btnArquivarModal" type="button" title="Arquivar" aria-label="Arquivar">◷</button>
+        <button class="btn-icon btn-deletar" id="btnDeletarModal" type="button" title="Excluir" aria-label="Excluir">✕</button>
+        <button class="btn-salvar" id="btnSalvarEdicao" type="button">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/assets/js/theme.js"></script>
+<script type="module" src="/assets/js/notes.js"></script>
+</body>
+</html>

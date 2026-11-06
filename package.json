@@ -1,0 +1,37 @@
+{
+  "name": "noteflow",
+  "version": "1.0.0",
+  "description": "Aplicação web de anotações com notas coloridas, fixadas e arquivadas, busca em tempo real e tema claro/escuro.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Guilherme Matos Paiva",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gm-paiva/NoteFlow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gm-paiva/NoteFlow/issues"
+  },
+  "homepage": "https://github.com/gm-paiva/NoteFlow#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0"
+  }
+}

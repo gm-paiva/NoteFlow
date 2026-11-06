@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crie sua conta no NoteFlow e organize suas ideias." />
+  <title>NoteFlow | Cadastro</title>
+
+  <link rel="icon" href="/assets/img/logo-circle.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Righteous&family=Sora:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/register.css" />
+</head>
+<body class="light">
+
+  <div class="container">
+
+    <div class="left-side">
+      <div class="logo"><img src="/assets/img/logo-circle.png" alt="Logo do NoteFlow" /></div>
+
+      <div class="text-content">
+        <h1>Organize suas ideias.</h1>
+        <h2>Acesse de qualquer lugar.</h2>
+
+        <p>Já tem uma conta?</p>
+
+        <a class="login-btn" href="/login">Entrar</a>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="form-box">
+        <h2>Criar conta</h2>
+        <p>Preencha os dados abaixo para se cadastrar.</p>
+
+        <form id="registerForm">
+
+          <label for="username">Nome de usuário</label>
+          <input type="text" id="username" placeholder="Digite seu nome de usuário" autocomplete="username" required />
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="Digite seu e-mail" autocomplete="email" required />
+
+          <label for="password">Senha</label>
+          <input type="password" id="password" placeholder="Digite sua senha" autocomplete="new-password" required />
+
+          <button type="submit" class="register-btn">Cadastrar</button>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Botão de tema -->
+  <button class="theme-toggle" id="themeToggle" type="button">🌙 Tema escuro</button>
+
+  <script type="module" src="/assets/js/theme.js"></script>
+  <script type="module" src="/assets/js/register.js"></script>
+</body>
+</html>
