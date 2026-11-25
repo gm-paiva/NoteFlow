@@ -16,28 +16,6 @@
 
 ---
 
-## Sumário
-
-- [Sobre](#sobre)
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias](#tecnologias)
-- [Requisitos](#requisitos)
-- [Como executar](#como-executar)
-  - [Com Node.js](#com-nodejs)
-  - [Com Docker](#com-docker)
-- [Variáveis de ambiente](#variáveis-de-ambiente)
-- [Scripts disponíveis](#scripts-disponíveis)
-- [Estrutura do projeto](#estrutura-do-projeto)
-- [Rotas](#rotas)
-- [Decisões técnicas](#decisões-técnicas)
-- [Testes e qualidade de código](#testes-e-qualidade-de-código)
-- [Limitações conhecidas e próximos passos](#limitações-conhecidas-e-próximos-passos)
-- [Contribuindo](#contribuindo)
-- [Equipe](#equipe)
-- [Licença](#licença)
-
-## Sobre
-
 O NoteFlow é um aplicativo de anotações inspirado no Google Keep, desenvolvido em grupo durante o curso de Informática da DiscoverON.
 
 O front-end é escrito em HTML, CSS e JavaScript puro e é servido por um servidor Node.js (Express). No estado atual, o projeto funciona como um protótipo de front-end: as notas são salvas no `localStorage` do navegador e não há autenticação real (veja [Limitações conhecidas](#limitações-conhecidas-e-próximos-passos)).
