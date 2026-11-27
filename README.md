@@ -184,23 +184,6 @@ npm run lint    # análise estática com ESLint
 
 Os testes verificam, entre outros pontos, que as rotas respondem corretamente, que a CSP está ativa, que nenhuma página HTML usa handlers ou estilos inline e que todos os arquivos referenciados em `/assets` existem. O mesmo conjunto roda no GitHub Actions a cada push e pull request, junto com o build da imagem Docker.
 
-## Limitações conhecidas e próximos passos
-
-- **Não há autenticação real.** Login e cadastro apenas validam se os campos foram preenchidos e redirecionam para `/notes`. Nenhum dado de usuário é enviado ou armazenado. O botão "Entrar com Google" e o link "Esqueceu a senha?" são apenas visuais.
-- **As notas ficam no `localStorage`.** Cada navegador tem o seu próprio conjunto de notas, sem sincronização entre dispositivos.
-- **Próximos passos sugeridos:**
-  - API REST para notas e usuários, com banco de dados (a conexão e os segredos entram no `.env`)
-  - Autenticação real, com senhas armazenadas com hash
-  - Testes automatizados do front-end
-  - Melhorias de acessibilidade, como navegação por teclado nos cartões e no menu lateral
-
-## Contribuindo
-
-1. Crie uma branch a partir da `main`: `git switch -c feat/nome-da-mudanca`
-2. Faça commits pequenos, seguindo o padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/) (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`)
-3. Antes de abrir o Pull Request, rode `npm run lint` e `npm test`
-4. Abra o Pull Request para a `main` descrevendo o que mudou e por quê
-
 ## Equipe
 
 - [Guilherme Matos Paiva](https://github.com/gm-paiva)
